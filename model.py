@@ -2,6 +2,11 @@ from collections import OrderedDict
 from pypinyin import lazy_pinyin as lp
 
 from_module=object()
+
+class _(str):
+    def __repr__(self):
+        return self.__str__()
+
 fmd={
     'help_text':'help_texts',
     'choices':'choices',
@@ -37,10 +42,6 @@ config_dict = {
 
     ],  
 }
-
-class _(str):
-    def __repr__(self):
-        return self.__str__()
 
 class Field(object):
     """docstring for Field"""
