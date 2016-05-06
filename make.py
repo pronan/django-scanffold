@@ -32,7 +32,7 @@ if __name__=='__main__':
     form_error_messages=INDENT.join('# %s:{"":""},'%repr(k) for k, v in dd.items())
     form_widgets=''
     for name, e in dd.items():
-        if 'help_text' in e.kwargs:
+        if 'help_text' in e.kwargs and 'choices' not in e.kwargs:
             hint=repr(e.kwargs['help_text'])
             if e.type=='TextField':
                 form_widgets+=INDENT+"'%(name)s':forms.Textarea(attrs={'placeholder':%(hint)s,'title':%(hint)s,'rows':5}),"%locals()

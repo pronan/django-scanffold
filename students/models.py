@@ -31,7 +31,7 @@ class Student(models.Model):
     create_time = models.DateTimeField('创建时间', auto_now_add=True)
     edit_time = models.DateTimeField('编辑时间',auto_now=True)
 
-    xm=models.CharField('姓名', blank=True, default='', max_length=5, xm='请填写你的姓名')
-    xb=models.CharField('性别', blank=True, max_length=1, default='')
-    bj=models.CharField('班级', blank=True, choices=choices.bj, help_text=help_texts.bj, max_length=10, default='')
-    cj=models.IntegerField('成绩', blank=True, default=0)
+    xm=models.CharField('姓名', max_length=5, blank=True, help_text='请填写你的姓名', default='')
+    xb=models.CharField('性别', max_length=1, blank=True, default='', choices=[('男', '男'), ('女', '女')])
+    bj=models.CharField('班级', max_length=10, blank=True, help_text=help_texts.bj, default='', choices=choices.bj)
+    cj=models.IntegerField('成绩', blank=True, help_text=help_texts.cj, default=0)

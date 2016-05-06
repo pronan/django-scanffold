@@ -28,7 +28,7 @@ config_dict = {
             'label':'性别', 
             'max_length':1, 
             'blank':False,
-            'choices':['男','女'],
+            'choices':[('男','男'), ('女', '女')],
         }, 
 
         {
@@ -105,12 +105,10 @@ class Field(object):
             val=f.pop(key, None)
             if val is from_module:
                 kw[key] = _(fmd[key]+'.'+name) # string that use str as repr
-            elif type(val) is str:
-                kw[name]=val
             elif val is None:
                 pass
             else:
-                Exception('%s:%s value type error'%(key, val))
+                kw[key]=val
 
         # rest defaults
         kw['blank']=self.try_get('blank')

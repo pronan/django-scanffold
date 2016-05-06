@@ -31,7 +31,8 @@ class Student(forms.ModelForm):
             # 'cj':{"":""},
         }
         widgets = {
-            'bj':forms.TextInput(attrs={'placeholder':help_texts.bj,'title':help_texts.bj}),
+            'xm':forms.TextInput(attrs={'placeholder':'请填写你的姓名','title':'请填写你的姓名'}),
+            'cj':forms.TextInput(attrs={'placeholder':help_texts.cj,'title':help_texts.cj}),
         }
         labels = {
             'xm':'姓名',
