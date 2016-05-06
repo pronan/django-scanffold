@@ -2,6 +2,7 @@
 A straightforward tool for creating an app folder with CRUD views from a model configuration file.
 ##为什么要做这个项目
 django已经有了admin, 要这个干嘛? 
+
 1. 在实际开发中, 有一层用户的权限仅次于开发者, 但是他们不懂程序, 因此不能直接让其接触admin界面.
 2. 需要更多的控制权, views, urls, templates等等.
 ## 用法
