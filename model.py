@@ -14,32 +14,38 @@ fmd={
 
 
 config_dict = {
-    'name':'Question', 
-    "verbose_name":"问题", 
+    'name':'Student', 
+    "verbose_name":"学生", 
     'fields':[
         {
-            'label':'标题', 
-            'max_length':50, 
+            'label':'姓名', 
+            'max_length':5, 
             'blank':False,
-            'help_text':from_module,
+            'help_text':'请填写你的姓名',
         }, 
 
         {
-            'type':'text', 
-            'label':'正文', 
-            'max_length':5000, 
+            'label':'性别', 
+            'max_length':1, 
             'blank':False,
-            'help_text':'详细描述你的问题',
+            'choices':['男','女'],
         }, 
 
         {
-            'label':'概要', 
-            'max_length':50, 
+            'label':'班级', 
+            'max_length':10, 
             'blank':False,
-            'help_text':from_module,
-            'choices':from_module,
+            'help_text':from_module, # will be render as 'help_texts.bj',
+            'choices':from_module, # will be render as 'choices.bj',
         }, 
 
+        {
+            'label':'成绩',
+            'type':'integer',
+            'blank':False,
+            'help_text':_('help_texts.cj'), # will be render as 'help_texts.cj',
+        }, 
+        
     ],  
 }
 

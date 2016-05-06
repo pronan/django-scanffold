@@ -1,0 +1,29 @@
+{% extends "base_home.html" %}
+
+{% block app_css %}
+  <link href="{{STATIC_URL}}{{appname}}/css/main.css{% if DEBUG %}?v={{rand()}}{% endif %}" rel="stylesheet" type="text/css" /> 
+{% endblock %}
+
+{% block app_js %}
+  <script src="{{ STATIC_URL }}{{appname}}/js/main.js{% if DEBUG %}?v={{rand()}}{% endif %}"></script> 
+{% endblock %}
+
+
+{% block main %}
+  <div id="option" class="col-12"><div class="oi">
+    <ul class="vertical menu fr black_menu">
+    {% for menu,url in sidebar.items() %}
+      <li><a {% if view.menu==menu %}class="youarehere"{% endif %}href="{{url}}">{{menu}}</a></li> 
+    {% endfor %}
+    </ul>
+    <div class="clear"></div>
+  </div></div>
+
+  <div id="content" class="col-88"><div class="oi">
+    <h1 class="bottom title">
+    {% block caption %}{% endblock %} 
+    </h1>
+    {% block hint %}{% endblock %} 
+    {% block content %}{% endblock %} 
+  </div></div>
+{% endblock %} 

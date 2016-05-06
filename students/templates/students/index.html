@@ -1,0 +1,36 @@
+{% extends appname+"/home.html" %}
+
+{% block title %} {{view.menu}} {% endblock %}
+
+{% block caption %}{{ view.menu }}({{object_list.count()}}){% endblock %} 
+
+{% block content %}
+
+{% if object_list %}
+    {% set _fields=view.model._meta.fields %}
+    <table class="simple-table menu">
+        <tr>
+            {% for field in _fields %}    
+                <th>{{field.verbose_name}}</th>
+            {% endfor %}
+            <th>操作</th>
+            <th>操作</th>
+            <th>操作</th>
+        </tr>
+        {% for obj in object_list %}  
+            <tr>
+            {% for field in _fields %}    
+                <td>{{getattr(obj, field.name)}}</td>
+            {% endfor %}
+            <td><a href="{{appurl('detail',pk=obj.pk)}}">查看</a></td>
+            <td><a href="{{appurl('update',pk=obj.pk)}}">更新</a></td>
+            <td><a href="{{appurl('delete',pk=obj.pk)}}">删除</a></td>
+            </tr>
+
+        {% endfor %}
+    </table>
+{% else %}
+    <p>没有任何记录</p>
+{% endif %}
+
+{% endblock %}
